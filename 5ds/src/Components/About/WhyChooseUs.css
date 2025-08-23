@@ -1,0 +1,85 @@
+/* Why Choose Us Section Styles
+.why-choose-us {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+/* Header Styles 
+.section-subtitle {
+  color: #dc3545;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.section-description {
+  font-size: 1.125rem;
+  color: #6c757d;
+  margin-bottom: 4rem;
+  line-height: 1.6;
+}*/
+
+/* Bloc global */
+.feature-card {
+  position: relative;            /* nécessaire pour placer le badge */
+  background: #fff;
+  padding: 2rem 1.5rem 1.5rem;   /* un peu de marge */
+ /* transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+  text-align: center;
+  width: 413.33px;
+  height: 268.4px;
+  margin-top: 32px;
+}
+
+/* Effet hover */
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Badge rouge placé en haut à gauche */
+.num-badge {
+  position: absolute;       /* se place par rapport à .feature-card */
+  top: 0;                   /* coin haut */
+  left: 0;                  /* coin gauche */
+  transform: translate(-30%, -30%); /* petit décalage pour sortir du bloc */
+  
+  background: #DA3333;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin-left: 12px;
+  margin-top: 12px;
+}
+
+/* Titre */
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: .75rem;
+}
+
+/* Description */
+.feature-description {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}

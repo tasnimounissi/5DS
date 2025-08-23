@@ -1,0 +1,82 @@
+.counter-section {
+  background-color: #dc3545;
+  padding: 40px 0 20px 0;
+  margin: 80px 0 0 0;
+  width: 100%;
+}
+
+.counter-row {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.counter-item {
+  color: white;
+  padding: 15px 15px;
+}
+
+/* Flex horizontal pour numéro + texte */
+.counter-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px; /* espace entre le numéro et le texte */
+  max-width: 250px; /* limite largeur pour garder tout en ligne */
+  margin: 0 auto;
+}
+
+.counter-number {
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 1;
+  font-family: 'Arial', sans-serif;
+}
+
+.counter-label {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.95;
+  font-family: 'Arial', sans-serif;
+  white-space: nowrap; /* empêche le texte de passer à la ligne */
+}
+
+/* Responsive pour écrans moyens */
+@media (max-width: 768px) {
+  .counter-number {
+    font-size: 3rem;
+  }
+  
+  .counter-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 576px) {
+  .counter-content {
+    max-width: 200px; /* réduit pour les petits écrans */
+  }
+
+  .counter-number {
+    font-size: 2.5rem;
+  }
+  
+  .counter-label {
+    font-size: 0.8rem;
+  }
+}
+
+/* Très petits écrans <400px, on passe en colonne pour lisibilité */
+@media (max-width: 400px) {
+  .counter-content {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+    max-width: 100%;
+  }
+}
+

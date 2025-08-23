@@ -1,0 +1,63 @@
+.faq-section {
+  padding: 60px 0;        /* espace interne haut/bas */
+  margin-top: 40px;       /* espace vs. section précédente */
+  margin-bottom: 60px;    /* espace vs. section suivante */
+}
+
+/* Accordions plus larges mais pas collés au bord */
+.accordion-large {
+  width: 90%;
+}
+
+/* Texte à droite : espace respirant par rapport aux accordions */
+.faq-text {
+  padding-left: 30px;
+}
+
+/* Style des titres/paragraphes à droite */
+.faq-section h5 {
+  font-weight: bold;
+  margin-top: 15px;
+}
+.faq-section p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.danger-headers .accordion-button {
+  /* Couleurs de base (état fermé) */
+  --bs-accordion-btn-bg: #dc3545;       /* rouge bootstrap */
+  --bs-accordion-btn-color: #fff;       /* texte blanc */
+
+  /* Couleurs quand l'item est ouvert */
+  --bs-accordion-active-bg: #bb2d3b;    /* rouge un peu plus sombre */
+  --bs-accordion-active-color: #fff;
+
+  /* Focus ring */
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 .25rem rgba(220,53,69,.25);
+
+  /* On applique explicitement (au cas où) */
+  background-color: var(--bs-accordion-btn-bg) !important;
+  color: var(--bs-accordion-btn-color) !important;
+}
+
+/* État ouvert (non .collapsed) : garde bien le rouge foncé */
+.danger-headers .accordion-button:not(.collapsed) {
+  background-color: var(--bs-accordion-active-bg) !important;
+  color: var(--bs-accordion-active-color) !important;
+  box-shadow: none;
+}
+
+/* Icône chevron en blanc (sinon il reste sombre sur fond rouge) */
+.danger-headers .accordion-button::after {
+  filter: invert(1);
+}
+
+/* Optionnel 
+.danger-headers .accordion-item {
+  border-color: #dc3545;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}*/
+
+

@@ -1,0 +1,46 @@
+.carousel-item img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    object-position: bottom; /* Découpe le HAUT */
+}
+
+.image-overlay {
+  position: relative;
+}
+
+.image-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Overlay noir semi-transparent */
+  z-index: 1;
+}
+
+.carousel-caption {
+  position: absolute;
+  z-index: 2; /* au-dessus de l'overlay */
+  text-align: left !important; /* Alignement à gauche */
+  /* left: 10px; Marge à gauche de 10px */
+  right: auto;
+  top: 50%; /* Centrage vertical */
+  transform: translateY(-50%); /* Ajustement pour un centrage parfait */
+  max-width: 600px; /* Largeur limitée */
+}
+
+.carousel-caption h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.carousel-caption p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.space {
+  margin-left: 10px;
+}

@@ -1,0 +1,326 @@
+/* ===== LOADING PAGE ===== */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fff;
+}
+
+.loading-screen p {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* ===== TRAINING PAGE ===== */
+.training-page {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.training-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.training-page .container-fluid {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== LEFT SECTION ===== */
+.left-section {
+  padding: 60px 20px 60px 60px;
+  color: white;
+}
+
+.content-wrapper {
+  max-width: 500px;
+}
+
+.stay-tuned {
+  font-size: 32px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.main-title {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+/* ===== COUNTDOWN SECTION ===== */
+.countdown-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 25px;
+  margin: 40px 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-block;
+  min-width: 280px;
+}
+
+.date-info {
+  margin-bottom: 25px;
+}
+
+.day-name {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.date {
+  font-size: 16px;
+  margin: 0;
+  color: #cccccc;
+}
+
+.countdown-timer {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.time-unit {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  display: inline-block;
+}
+
+.time-unit sub {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 2px;
+  color: #cccccc;
+}
+
+/* ===== VIDEO INTRO ===== */
+.video-intro {
+  margin-top: 40px;
+}
+
+.play-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  color: white;
+}
+
+.play-button:hover {
+  color: white;
+  text-decoration: none;
+  background: transparent;
+}
+
+.play-button:focus,
+.play-button:active,
+.play-button:visited {
+  color: white;
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.play-icon {
+  width: 50px;
+  height: 50px;
+  background: #dc3545;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: white;
+}
+
+/* ===== RIGHT SECTION (FORM) ===== */
+.right-section {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background: #ffffff;
+  padding: 50px 40px;
+  margin: 40px 0 40px 0;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-header {
+  margin-bottom: 30px;
+}
+
+.keep-informed {
+  color: #dc3545;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.logo-section {
+  margin: 30px 0;
+}
+
+.singra-logo {
+  max-width: 200px;
+  height: auto;
+}
+
+.subscription-text {
+  color: #666666;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.subscription-form {
+  width: 100%;
+}
+
+.email-group {
+  margin-bottom: 20px;
+}
+
+.email-input {
+  padding: 15px 20px;
+  border: 2px solid #e0e0e0;
+  font-size: 14px;
+  text-align: center;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.email-input:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  background: #ffffff;
+}
+
+.email-input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+}
+
+.subscribe-button {
+  background: #dc3545;
+  border: none;
+  padding: 15px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.subscribe-button:hover {
+  background: #dc3545;
+  font-weight: 100px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+  .left-section {
+    padding: 40px 30px;
+    text-align: center;
+  }
+  
+  .main-title {
+    font-size: 36px;
+  }
+  
+  .stay-tuned {
+    font-size: 28px;
+  }
+  
+  .form-container {
+    margin: 20px;
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 32px;
+  }
+  
+  .stay-tuned {
+    font-size: 24px;
+  }
+  
+  .countdown-timer {
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .time-unit {
+    font-size: 28px;
+  }
+  
+  .form-container {
+    margin: 15px;
+    padding: 30px 20px;
+  }
+  
+  .left-section {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .countdown-section {
+    padding: 20px;
+  }
+  
+  .time-unit {
+    font-size: 24px;
+  }
+  
+  .play-button {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+}
+/* Réduit l’espace vertical entre les 2 sections */
+.right-section .form-container {
+  margin: 20px 0; /* au lieu de 40px */
+}
+
+/* Bouton Subscribe Now toujours en une seule ligne */
+.subscribe-button {
+  white-space: nowrap;   /* empêche le retour à la ligne */
+  width: auto;           /* laisse le bouton s’adapter au texte */
+  min-width: 180px;      /* garde une taille minimale élégante */
+}

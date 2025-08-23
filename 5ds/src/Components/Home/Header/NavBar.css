@@ -1,0 +1,83 @@
+* {
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Navbar principale */
+.custom-navbar {
+  min-height: 100px;
+  padding: 15px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: min-height 0.3s ease;
+}
+
+/* Décalage sous la top-bar */
+.navbar-fixed {
+  top: 40px;
+  overflow-x: hidden;
+}
+
+/* Espace sous la navbar fixed */
+.header-spacer {
+  height: calc(100px + 40px);
+}
+
+/* --- LOGO --- */
+.navbar-logo {
+  height: 50px;       /* taille fixe (desktop et mobile) */
+  width: auto;        /* garde les proportions */
+  object-fit: contain; 
+  display: block;     
+  max-width: 100%;    /* évite le débordement dans son conteneur */
+}
+
+/* Liens de navigation */
+.custom-navbar .nav-link,
+.custom-navbar .navbar-brand {
+  color: black !important;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+  padding: 8px 12px;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .navbar-brand:hover {
+  color: red !important;
+}
+
+/* Bouton "Training information" */
+button.btn-outline-danger {
+  border-width: 2px;
+  border-radius: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 991.98px) {
+  .custom-navbar {
+    min-height: 80px;
+    padding: 10px 0;
+  }
+
+  .header-spacer {
+    height: calc(80px + 40px);
+  }
+
+  .custom-navbar .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Liens plus petits sur mobile */
+  .custom-navbar .nav-link {
+    font-size: 14px;
+    padding: 5px 8px;
+    margin: 0 5px;
+  }
+}
+
+/* Écrans très petits (iPhone etc.) */
+@media (max-width: 420px) {
+  .navbar-logo {
+    height: 45px; /* petit ajustement si écran minuscule */
+  }
+}
+

@@ -1,0 +1,23 @@
+/*.style{
+    height: auto;
+    width: auto;
+    background-color: #f8f9fa;
+    margin-top: 95px;
+}
+/*.section-wrapper {
+  padding: 12px 0; /* Mobile first: 12px for phones
+}*/
+
+/* Tablets and medium screens (768px and up) 
+@media (min-width: 768px) {
+  .section-wrapper {
+    padding: 50px 0; /* 50px for tablets/md screens 
+  }
+}
+
+/* Large screens (992px and up) 
+@media (min-width: 992px) {
+  .section-wrapper {
+    padding: 150px 0; /* 150px for large screens 
+  }
+}*/

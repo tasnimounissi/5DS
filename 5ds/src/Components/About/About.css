@@ -1,0 +1,149 @@
+
+.containers{
+  padding:  150px 20px;
+  /*background-color: #F8F9FA;*/
+
+}
+
+.eyebrow { 
+  letter-spacing: .15em; 
+  font-weight: 800; 
+  font-size: .975rem;
+  color: #DA3333; 
+  text-transform: uppercase;
+}
+
+.image{
+  width: 340px;
+  height: 320px;
+}
+
+.lead { 
+  font-size: 1rem; 
+  line-height: 1.6;
+  margin-bottom:12px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .75rem 2rem;
+  padding-left: 0;
+  margin: 0;
+}
+
+.features li {
+  position: relative;
+  padding-left: 1.6rem;
+  line-height: 1.5;
+}
+
+.features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: #DA3333; 
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(218, 51, 51, 0.2); 
+}
+
+.features li::after {
+  content: "✓";
+  position: absolute;
+  left: 0.3rem;
+  top: 0.25rem;
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* en grand écran, la liste passe à 2 colonnes */
+@media (min-width: 992px) {
+  .features { 
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  }
+}
+
+/* en grand écran, la liste passe à 2 colonnes */
+@media (min-width: 1280px) {
+  .containers{
+  padding:  150px 80px;
+}
+}
+
+/* règle grise sous la liste */
+.rule {
+  width: 80%;         
+  height: 4px;       
+  background-color: #6C757D;
+  border: none;       
+  margin: 20px 0;     
+}
+
+/* signature */
+.signature { 
+  width: 80px; 
+  height: auto; 
+}
+
+/* carte image à droite */
+.image-card {
+  border: 2px solid #ddd;
+  padding: 5px;
+}
+
+.about-visual { 
+  object-fit: cover;
+}
+
+/* petit bonus typographique */
+.display-5 { 
+  line-height: 1.15; 
+}
+
+.size {
+  font-size: 13.6px;
+}
+
+/* Phone number container - responsive layout */
+.phone-container {
+  flex: 0 0 auto;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Responsive margin for phone number */
+.margin {
+  margin-left: 10px;
+}
+
+@media (min-width: 576px) {
+  .margin {
+    margin-left: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .margin {
+    margin-left: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .margin {
+    margin-left: 100px;
+  }
+}
+
+/* Signature section container */
+.signature-section {
+  min-width: 0;
+  overflow: hidden;
+}

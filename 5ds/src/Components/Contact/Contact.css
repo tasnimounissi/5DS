@@ -1,0 +1,305 @@
+.contact-page {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+/* Container central */
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header Styles */
+.contact-header {
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.text-red {
+  color: #dc3545;
+}
+
+.contact-subtitle {
+  color: #6c757d;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+/* Content Layout - container blanc avec shadow */
+.contact-content {
+  display: flex;
+  align-items: stretch;
+  background-color: #ffffff; /* fond blanc */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* ombre */
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 2rem; /* padding interne du container */
+}
+
+/* Form Section */
+.form-section {
+  padding-right: 1.5rem;
+  flex: 2;
+}
+
+/* Ligne rouge */
+.red-line {
+  width: 100%;
+  height: 4px;
+  background-color: #dc3545;
+  margin-bottom: 2rem;
+}
+
+/* Form Inputs */
+.form-input {
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.form-input::placeholder {
+  color: #adb5bd;
+  font-weight: 400;
+}
+
+.form-input:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
+  outline: none;
+}
+
+/* Phone Input Styles - Styles personnalisés pour react-international-phone */
+.phone-input-container {
+  width: 100% !important;
+}
+
+/* Container principal du phone input */
+.phone-input-container .react-international-phone-input-container {
+  display: flex !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+/* Bouton sélecteur de pays (flag) */
+.phone-input-container .react-international-phone-country-selector-button {
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 0 !important;
+  border-right: none !important;
+  background-color: #fff !important;
+  padding: 12px 12px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+  min-width: 60px !important;
+}
+
+.phone-input-container .react-international-phone-country-selector-button:hover {
+  border-color: #dc3545 !important;
+  background-color: #f8f9fa !important;
+}
+
+.phone-input-container .react-international-phone-country-selector-button:focus {
+  border-color: #dc3545 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Input téléphone principal */
+.phone-input-container .react-international-phone-input,
+.phone-input-container .custom-phone-input {
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 0 !important;
+  border-left: none !important;
+  padding: 12px 15px !important;
+  font-size: 1rem !important;
+  background-color: #fff !important;
+  transition: all 0.3s ease !important;
+  height: 48px !important;
+  flex: 1 !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+
+.phone-input-container .react-international-phone-input::placeholder,
+.phone-input-container .custom-phone-input::placeholder {
+  color: #adb5bd !important;
+  font-weight: 400 !important;
+}
+
+.phone-input-container .react-international-phone-input:focus,
+.phone-input-container .custom-phone-input:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15) !important;
+}
+
+/* Quand l'input est focus, on change aussi la bordure du bouton */
+.phone-input-container .react-international-phone-input:focus + .react-international-phone-country-selector-button,
+.phone-input-container .custom-phone-input:focus ~ .react-international-phone-country-selector-button {
+  border-color: #dc3545 !important;
+}
+
+/* Style pour la dropdown des pays */
+.react-international-phone-country-selector-dropdown {
+  border-radius: 0 !important;
+  border: 1px solid #e0e0e0 !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  z-index: 1000 !important;
+}
+
+/* Assurer que le flag et le texte sont bien alignés */
+.phone-input-container .react-international-phone-country-selector-button span {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Message Input */
+.message-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: transparent;
+  border: 2px solid #dc3545;
+  color: #dc3545;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+.submit-btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Info Section */
+.info-section {
+  padding-left: 1.5rem;
+  flex: 1;
+}
+
+/* Info Title */
+.info-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.info-subtitle {
+  color: #6c757d;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Contact Info Items */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.info-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.address-icon, .email-icon, .phone-icon {
+  background-color: #dc3545;
+}
+
+.info-content h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.info-content p {
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contact-content {
+    flex-direction: column;
+  }
+  
+  .info-section {
+    padding-left: 0;
+    margin-top: 1.5rem;
+  }
+  
+  .contact-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 1rem 0;
+  }
+  
+  .contact-title {
+    font-size: 1.75rem;
+  }
+  
+  .contact-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-content {
+    padding: 0.5rem;
+  }
+  
+  .contact-title {
+    font-size: 1.5rem;
+  }
+  
+  .info-title {
+    font-size: 1.5rem;
+  }
+}

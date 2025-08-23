@@ -1,0 +1,114 @@
+/* Conteneur global */
+.cards-carousel-container {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+  margin-top: 50px; /* espace sous la top-bar */
+}
+
+/* Ligne des cartes (on translate cette ligne) */
+.cards-scroll-wrapper {
+  display: flex;
+  gap: var(--gap, 24px);
+  transition: transform 0.8s ease-in-out;  /* défilement fluide */
+  will-change: transform;
+}
+
+/* Carte consultant */
+.consultant-card {
+  /* largeur responsive pilotée par --per-view ET le gap */
+  flex: 0 0 calc(
+    (100% - (var(--gap, 24px) * (var(--per-view, 1) - 1)))
+    / var(--per-view, 1)
+  );
+  border: 1px solid #e9ecef;
+  border-radius: 6px;              /* léger arrondi comme la capture */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  background: #fff;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  min-width: 0; /* évite les débordements de texte */
+}
+
+.consultant-card .card-body {
+  padding: 22px;
+}
+
+/* En hover: léger soulèvement (comme la capture) */
+.consultant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.12);
+}
+
+/* Header (icône + titres) */
+.consultant-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.consultant-icon {
+  font-size: 28px;
+  margin-right: 12px;
+}
+
+.consultant-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.consultant-subtitle {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+/* Étoiles (rouges) */
+.rating-stars {
+  margin: 10px 0 6px;
+}
+.star {
+  font-size: 16px;
+  color: #dc3545;       /* rouge */
+}
+.star.filled {
+  color: #dc3545;
+}
+
+/* Texte */
+.consultant-description {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #212529;
+}
+
+/* Petites flèches de navigation (optionnel) */
+.nav-arrows {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  border: none;
+  background: rgba(0,0,0,0.06);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 34px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.nav-btn:hover { background: rgba(0,0,0,0.12); }
+.nav-btn:disabled { opacity: 0.35; cursor: default; }
+.nav-btn:first-of-type { left: 4px; }
+.nav-btn:last-of-type { right: 4px; }
+
+/* --- Rien d'autre à faire pour le responsive ---
+   perView est géré en JS: 1 (sm) / 2 (md) / 3 (lg) et injecté via --per-view.
+*/
+

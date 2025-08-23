@@ -1,0 +1,76 @@
+/* Container that takes 80% of viewport width */
+.slider-container {
+  width: 80vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 110px 0 0px 0;
+}
+
+/* The "window": we hide what overflows */
+.logo-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Logo ribbon */
+.logo-track {
+  display: flex;
+  align-items: center;
+  will-change: transform;
+} 
+
+/* A logo = a "step" of the slider */
+.logo-item {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0;
+  height: 140px;
+}
+
+/* Image */
+.logo-item img {
+  width: 100%;
+  height: auto;
+  max-height: 110px;
+  object-fit: contain;
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .logo-item {
+    height: 120px;
+  }
+  
+  .logo-item img {
+    max-height: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-container {
+    width: 90vw;
+  }
+  
+  .logo-item {
+    height: 100px;
+  }
+  
+  .logo-item img {
+    max-height: 70px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo-item {
+    height: 80px;
+  }
+  
+  .logo-item img {
+    max-height: 60px;
+  }
+}
