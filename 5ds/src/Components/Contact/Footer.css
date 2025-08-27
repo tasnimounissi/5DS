@@ -1,5 +1,5 @@
 .footer-section {
-  background-color: #1a1a1a;
+  background-color: #111111;
   color: #ffffff;
   padding: 80px 0 0 0;
   margin: 0;
@@ -8,10 +8,9 @@
 .footer-content {
   margin: 0;
   padding: 0 40px;
-  display: flex;         /* déjà présent via Row Bootstrap */
-  align-items: stretch;  /* <--- modifie alignement vertical */
+  display: flex;
+  align-items: stretch;
 }
-
 
 .footer-column {
   padding: 0 20px 40px 20px;
@@ -20,7 +19,7 @@
   justify-content: flex-start;
 }
 
-/* Logo Section */
+/* Logo Section - CORRIGÉ */
 .footer-logo {
   display: flex;
   align-items: center;
@@ -28,8 +27,8 @@
 }
 
 .footer-logo-img {
-  width: 120px;
-  height: 120px;
+  width: 200px;          /* Augmenté de 120px à 200px */
+  height: auto;          /* Changé de 120px à auto pour garder les proportions */
   margin-right: 15px;
   object-fit: contain;
 }
@@ -226,17 +225,13 @@
     height: 65px;
   }
   
+  /* Logo responsive - CORRIGÉ */
   .footer-logo-img {
-    width: 100px;
-    height: 100px;
+    width: 150px;        /* Réduit à 150px sur mobile au lieu de 100px */
+    height: auto;        /* Garde les proportions */
   }
 }
-/*.footer-column:first-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}*/
-.footer-column:not(:first-child) {
-  margin-top: 20px; /* ajuste la valeur selon le décalage exact */
-}
 
+.footer-column:not(:first-child) {
+  margin-top: 20px;
+}

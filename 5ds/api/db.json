@@ -27,5 +27,15 @@
       "email": "tasnimounissi16@gmail.com",
       "message": "Je voudrais plus de details "
     }
+  ],
+  "trainings": [
+    {
+      "id": "1",
+      "email": "example@domain.com"
+    },
+    {
+      "id": "e25a",
+      "email": "tasnimounissi16@gmail.com"
+    }
   ]
 }

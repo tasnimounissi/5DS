@@ -5,13 +5,59 @@ import singraLogo from "../assets/singra.png";
 import backgroundImg from "../assets/background.jpg";
 
 function Training() {
+  // 1️⃣ Hook pour gérer le chargement (déjà présent)
   const [loading, setLoading] = useState(true);
 
+  // 2️⃣ Hook pour stocker l'email saisi par l’utilisateur
+  const [email, setEmail] = useState("");
+
+  // 3️⃣ Hook pour afficher un message d’erreur ou de succès
+  const [message, setMessage] = useState("");
+
+  // Effet de chargement au début (déjà présent)
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
+  // 4️⃣ Fonction pour valider l’email
+  const validateEmail = (email) => {
+    // Regex simple pour vérifier que l’email ressemble à "exemple@domaine.com"
+    return /\S+@\S+\.\S+/.test(email);
+  };
+
+  // 5️⃣ Fonction appelée quand on clique sur "SUBSCRIBE NOW"
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Empêche le rechargement de la page
+
+    if (!validateEmail(email)) {
+      setMessage(" Email invalide. Essayez encore.");
+      return;
+    }
+
+    try {
+      // On envoie l’email à notre fake API (json-server)
+      const response = await fetch("http://localhost:5000/trainings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setMessage("Merci ! Vous êtes inscrit.");
+        setEmail(""); // Réinitialise le champ
+      } else {
+        setMessage(" Erreur lors de l’inscription.");
+      }
+    } catch (error) {
+      console.error("Erreur API:", error);
+      setMessage(" Impossible de contacter le serveur.");
+    }
+  };
+
+  //  Écran de chargement
   if (loading) {
     return (
       <div className="loading-screen">
@@ -83,20 +129,33 @@ function Training() {
                 as we launch our new website
               </p>
 
-              <Form className="subscription-form row g-2 justify-content-center">
+              {/* Formulaire */}
+              <Form
+                className="subscription-form row g-2 justify-content-center"
+                onSubmit={handleSubmit}
+              >
                 <Col xs={12} md={8}>
                   <Form.Control
                     type="email"
                     placeholder="ENTER YOUR EMAIL"
                     className="email-input"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} // met à jour l’état email
                   />
                 </Col>
                 <Col xs="auto">
-                  <Button variant="danger" className="subscribe-button">
+                  <Button
+                    type="submit"
+                    variant="danger"
+                    className="subscribe-button"
+                  >
                     SUBSCRIBE NOW
                   </Button>
                 </Col>
               </Form>
+
+              {/* Message d’erreur ou succès */}
+              {message && <p className="mt-3 text-center">{message}</p>}
             </div>
           </Col>
         </Row>
@@ -106,5 +165,6 @@ function Training() {
 }
 
 export default Training;
+
 
 
