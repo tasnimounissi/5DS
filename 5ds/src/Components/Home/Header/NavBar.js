@@ -1,9 +1,55 @@
 import "./NavBar.css";
 import Button from "react-bootstrap/Button";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from "../../assets/logo.png"; // logo importé
+import logo from "../../assets/logo.png";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const NavBar = () => {
+  const navigate = useNavigate();
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    const sections = ["home", "about", "values", "services", "consultants", "contact"];
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.3, // 30% de la section doit être visible
+        rootMargin: "-100px 0px -50% 0px" // Ajustement pour la navbar fixe
+      }
+    );
+
+    // Observer toutes les sections
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      // Nettoyer l'observer
+      sections.forEach((sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, []);
+
+  // Fonction pour gérer le clic sur un lien
+  const handleNavClick = (sectionId) => {
+    setActiveSection(sectionId);
+  };
+
   return (
     <>
       <Navbar
@@ -29,16 +75,56 @@ const NavBar = () => {
               className="navigation-text ms-auto me-3 align-items-center"
               style={{ fontWeight: 700 }}
             >
-              <Nav.Link href="#hero">HOME</Nav.Link>
-              <Nav.Link href="#features">ABOUT</Nav.Link>
-              <Nav.Link href="#">VALUES</Nav.Link>
-              <Nav.Link href="#faq">SERVICES</Nav.Link>
-              <Nav.Link href="./index-ar.html">CONSULTANTS</Nav.Link>
-              <Nav.Link href="#feature">CONTACT</Nav.Link>
+              <Nav.Link 
+                href="#home" 
+                className={activeSection === "home" ? "active-link" : ""}
+                onClick={() => handleNavClick("home")}
+              >
+                HOME
+              </Nav.Link>
+              <Nav.Link 
+                href="#about" 
+                className={activeSection === "about" ? "active-link" : ""}
+                onClick={() => handleNavClick("about")}
+              >
+                ABOUT
+              </Nav.Link>
+              <Nav.Link 
+                href="#values" 
+                className={activeSection === "values" ? "active-link" : ""}
+                onClick={() => handleNavClick("values")}
+              >
+                VALUES
+              </Nav.Link>
+              <Nav.Link 
+                href="#services" 
+                className={activeSection === "services" ? "active-link" : ""}
+                onClick={() => handleNavClick("services")}
+              >
+                SERVICES
+              </Nav.Link>
+              <Nav.Link 
+                href="#consultants" 
+                className={activeSection === "consultants" ? "active-link" : ""}
+                onClick={() => handleNavClick("consultants")}
+              >
+                CONSULTANTS
+              </Nav.Link>
+              <Nav.Link 
+                href="#contact" 
+                className={activeSection === "contact" ? "active-link" : ""}
+                onClick={() => handleNavClick("contact")}
+              >
+                CONTACT
+              </Nav.Link>
 
               {/* Bouton visible uniquement sur mobile */}
               <Nav.Item className="d-lg-none mt-3">
-                <Button variant="outline-danger" className="rounded-0 w-100">
+                <Button 
+                  variant="outline-danger"
+                  className="rounded-0 w-100"
+                  onClick={() => navigate("/training","_blank")}
+                >
                   Training information
                 </Button>
               </Nav.Item>
@@ -47,7 +133,11 @@ const NavBar = () => {
 
           {/* Bouton visible uniquement sur desktop */}
           <div className="d-none d-lg-block">
-            <Button variant="outline-danger" className="rounded-0">
+            <Button 
+              variant="outline-danger"
+              className="rounded-0"
+              onClick={() => window.open("/training","_blank")}
+            >
               Training information
             </Button>
           </div>
@@ -61,5 +151,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
 

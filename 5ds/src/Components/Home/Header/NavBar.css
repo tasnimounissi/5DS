@@ -25,8 +25,8 @@
 .navbar-logo {
   height: 50px;       /* taille fixe (desktop et mobile) */
   width: auto;        /* garde les proportions */
-  object-fit: contain; 
-  display: block;     
+  object-fit: contain;
+  display: block;
   max-width: 100%;    /* évite le débordement dans son conteneur */
 }
 
@@ -42,6 +42,12 @@
 .custom-navbar .nav-link:hover,
 .custom-navbar .navbar-brand:hover {
   color: red !important;
+}
+
+/* Style pour le lien actif (section visible) */
+.custom-navbar .nav-link.active-link {
+  color: red !important;
+  font-weight: 800;
 }
 
 /* Bouton "Training information" */
@@ -81,3 +87,16 @@ button.btn-outline-danger {
   }
 }
 
+/* Empêche toute la page de scroller horizontalement */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* On s'assure que la navbar prend bien la largeur de l'écran */
+.custom-navbar {
+  width: 100%;
+  box-sizing: border-box; /* évite que padding/ border fassent dépasser */
+}

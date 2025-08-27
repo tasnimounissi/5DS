@@ -25,26 +25,25 @@ function Values() {
     <>
       <section className="values-section py-5" id="values">
         <div className="container">
-          <div className="row align-items-center">
+          {/* wrapper grille : horizontal seulement sur lg+ */}
+          <div className="values-grid">
             {/* Image côté gauche */}
-            <div className="col-lg-6 col-md-12 mb-4 mb-lg-0">
+            <div className="image-col">
               <div className="image-container">
                 <img
                   src={require("../assets/values.jpg")}
                   alt="Professional businessman"
-                  className="size"
+                  className="img-fluid d-block"
                 />
               </div>
             </div>
 
             {/* Contenu côté droit */}
-            <div className="col-lg-6 col-md-12 mb-3">
+            <div className="content-col">
               <div className="values-content">
                 {/* Header */}
                 <div className="mb-4">
-                  <h6 className="badge text-danger px-3 py-2 mb-3 rounded-pill">
-                    OUR VALUES
-                  </h6>
+                  <h6 className="badge text-danger">OUR VALUES</h6>
                   <h2 className="display-5 fw-bold text-dark mb-4">
                     Our Values Inspire Us And Shape The Way We Serve Our Clients.
                   </h2>
@@ -53,23 +52,21 @@ function Values() {
                 {/* Liste des valeurs */}
                 <div className="values-list">
                   {values.map((value, index) => (
-                    <div key={index} className="value-item d-flex mb-4">
+                    <div
+                      key={index}
+                      className={`value-item d-flex ${index !== values.length - 1 ? "mb-4" : ""}`}
+                    >
                       <div className="value-icon me-3 flex-shrink-0">
-                        <div className="value-number">
-                          {index + 1}
-                        </div>
+                        <div className="value-number">{index + 1}.</div>
                       </div>
                       <div className="value-content">
-                        <h5 className="fw-bold text-dark mb-2">
-                          {value.title}
-                        </h5>
-                        <p className="text-muted mb-0 value-description">
-                          {value.description}
-                        </p>
+                        <h5 className="fw-bold text-dark mb-2">{value.title}</h5>
+                        <p className="text-muted mb-0 value-description">{value.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
+
               </div>
             </div>
           </div>
@@ -80,3 +77,7 @@ function Values() {
 }
 
 export default Values;
+
+
+
+

@@ -41,12 +41,12 @@ const Footer = () => {
           <Col lg={2} md={6} className="footer-column">
             <h4 className="footer-title">Quick links</h4>
             <ul className="footer-links">
-              <li><a href="home" className="footer-link">Home</a></li>
-              <li><a href="about" className="footer-link">About</a></li>
-              <li><a href="values" className="footer-link">Values</a></li>
-              <li><a href="services" className="footer-link">Services</a></li>
-              <li><a href="consultants" className="footer-link">Consultants</a></li>
-              <li><a href="contact" className="footer-link">Contact</a></li>
+              <li><a href="#home" className="footer-link">Home</a></li>
+              <li><a href="#about" className="footer-link">About</a></li>
+              <li><a href="#values" className="footer-link">Values</a></li>
+              <li><a href="#services" className="footer-link">Services</a></li>
+              <li><a href="#consultants" className="footer-link">Consultants</a></li>
+              <li><a href="#contact" className="footer-link">Contact</a></li>
             </ul>
           </Col>
 
@@ -54,14 +54,14 @@ const Footer = () => {
           <Col lg={3} md={6} className="footer-column">
             <h4 className="footer-title">Our services</h4>
             <ul className="footer-links">
-              <li><a href="sevices" className="footer-link">Engineering</a></li>
-              <li><a href="services" className="footer-link">Cloud Solutions</a></li>
-              <li><a href="services" className="footer-link">Big Data</a></li>
-              <li><a href="services" className="footer-link">Training</a></li>
+              <li><a href="#services" className="footer-link">Engineering</a></li>
+              <li><a href="#services" className="footer-link">Cloud Solutions</a></li>
+              <li><a href="#services" className="footer-link">Big Data</a></li>
+              <li><a href="#services" className="footer-link">Training</a></li>
               <li><a href="#services" className="footer-link">Coaching</a></li>
-              <li><a href="services" className="footer-link">Design & DM</a></li>
-              <li><a href="services" className="footer-link">Scientific Research</a></li>
-              <li><a href="services" className="footer-link">Talent Management</a></li>
+              <li><a href="#services" className="footer-link">Design & DM</a></li>
+              <li><a href="#services" className="footer-link">Scientific Research</a></li>
+              <li><a href="#services" className="footer-link">Talent Management</a></li>
             </ul>
           </Col>
 
@@ -74,7 +74,10 @@ const Footer = () => {
                 <div className="client-info">
                   <div className="client-date">Oct 01, 1979</div>
                   <div className="client-name">Infotel</div>
-                  <a href="https://infotel.com/" className="client-link">
+                  <a href="https://infotel.com/" 
+                  className="client-link"
+                  target="_blank"
+                  rel="noreferrer">
                     Read more <span className="arrow">▶</span>
                   </a>
                 </div>
@@ -85,7 +88,10 @@ const Footer = () => {
                 <div className="client-info">
                   <div className="client-date">Jan 01, 2008</div>
                   <div className="client-name">Enedis</div>
-                  <a href="https://www.enedis.fr/" className="client-link">
+                  <a href="https://www.enedis.fr/" 
+                  className="client-link"
+                  target="_blank"
+                  rel="noreferrer">
                     Read more <span className="arrow">▶</span>
                   </a>
                 </div>
@@ -96,7 +102,10 @@ const Footer = () => {
                 <div className="client-info">
                   <div className="client-date">Fev 15, 1983</div>
                   <div className="client-name">Voicedigit</div>
-                  <a href="https://voicedigit.com" className="client-link">
+                  <a href="https://voicedigit.com" 
+                  className="client-link"
+                  target="_blank"
+                  rel="noreferrer">
                     Read more <span className="arrow">▶</span>
                   </a>
                 </div>

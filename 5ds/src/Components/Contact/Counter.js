@@ -1,6 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './Counter.css';
+
+// Définir les valeurs finales en dehors du composant
+const finalCounts = {
+  projects: 45,
+  customers: 18,
+  awards: 5,
+  years: 2
+};
 
 const Counter = () => {
   const [counts, setCounts] = useState({
@@ -10,12 +18,8 @@ const Counter = () => {
     years: 0
   });
 
-  const finalCounts = {
-    projects: 45,
-    customers: 18,
-    awards: 5,
-    years: 2
-  };
+  const counterRef = useRef(null);       // Référence à la section
+  const [hasAnimated, setHasAnimated] = useState(false); // Pour ne pas relancer
 
   const animateCount = (key, finalValue) => {
     const duration = 2000;
@@ -34,18 +38,33 @@ const Counter = () => {
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      animateCount('projects', finalCounts.projects);
-      animateCount('customers', finalCounts.customers);
-      animateCount('awards', finalCounts.awards);
-      animateCount('years', finalCounts.years);
-    }, 500);
+    if (!counterRef.current) return;
 
-    return () => clearTimeout(timer);
-  }, []);
+    const currentNode = counterRef.current; // copie locale pour le cleanup
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasAnimated) {
+            animateCount('projects', finalCounts.projects);
+            animateCount('customers', finalCounts.customers);
+            animateCount('awards', finalCounts.awards);
+            animateCount('years', finalCounts.years);
+            setHasAnimated(true); // pour ne pas relancer
+          }
+        });
+      },
+      { threshold: 0.5 } // déclenche quand 50% de la section est visible
+    );
+
+    observer.observe(currentNode);
+
+    return () => {
+      observer.unobserve(currentNode); // utiliser la copie locale
+    };
+  }, [hasAnimated]);
 
   return (
-    <div className="counter-section">
+    <div className="counter-section" ref={counterRef}>
       <Container fluid className="px-0">
         <Row className="counter-row mx-0">
           <Col xs={12} md={6} lg={3} className="counter-item">
@@ -79,6 +98,7 @@ const Counter = () => {
 };
 
 export default Counter;
+
 
 
 

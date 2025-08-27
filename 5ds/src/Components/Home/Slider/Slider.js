@@ -23,8 +23,8 @@ function Slider() {
           The strength of the team is each individual member.<br/>
           The strength of each member is the team.<br/>
           -Phil Jackson-</p>
-          <Button variant="danger" className="rounded-0">Contact us</Button>
-           <Button variant="outline-light"  className="rounded-0 space">Our company</Button>
+          <Button variant="danger" className="rounded-0" href="#contact">Contact us</Button>
+           <Button variant="outline-light"  className="rounded-0 space" href="#about">Our company</Button>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={2000}>
@@ -39,8 +39,8 @@ function Slider() {
           <h1>Innovation Through <br/>
             Insightful Consulting</h1>
           <p>Fueling improvement with visionary advice - Innovation with smart advice.</p>
-          <Button variant="danger"  className="rounded-0">Contact us</Button>
-          <Button variant="outline-light"  className="rounded-0 space">Our company</Button>
+          <Button variant="danger"  className="rounded-0" href="#contact">Contact us</Button>
+          <Button variant="outline-light" className="rounded-0 space" href="#about">Our company</Button>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item >
@@ -58,8 +58,8 @@ function Slider() {
             we take your company to new horizons,where<br/>
             innovation meets success
           </p>
-          <Button variant="danger"  className="rounded-0">Contact us</Button>
-          <Button variant="outline-light"  className="rounded-0 space">Our company</Button>
+          <Button variant="danger"  className="rounded-0" href="#contact">Contact us</Button>
+          <Button variant="outline-light"  className="rounded-0 space" href="#about">Our company</Button>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

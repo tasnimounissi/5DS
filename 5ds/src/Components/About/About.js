@@ -6,7 +6,7 @@ import "./About.css";
 export default function About() {
   return (
     <>
-      <section className="about section-padding">
+      <section className="about section-padding" id="about">
         <div className="containers">
           <div className="row align-items-center g-5">
             <div className="col-lg-5 order-1 order-lg-2">

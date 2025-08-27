@@ -191,8 +191,11 @@
   color: white;
   border-color: #dc3545;
 }
-
+.submit-btn:active,
 .submit-btn:focus {
+  background-color: #dc3545 !important;
+  color: white !important;
+  border-color: #dc3545 !important;
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
@@ -301,5 +304,10 @@
   
   .info-title {
     font-size: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .info-section {
+    margin-left : 12px;
   }
 }

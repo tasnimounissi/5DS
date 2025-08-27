@@ -1,6 +1,6 @@
 .carousel-item img {
     width: 100%;
-    height: 650px;
+    height: 100vh;
     object-fit: cover;
     object-position: bottom; /* Découpe le HAUT */
 }
@@ -43,4 +43,27 @@
 
 .space {
   margin-left: 10px;
+}
+/* Adjust caption for small screens */
+@media (max-width: 767.98px) {
+    .carousel-caption {
+        top: 25% !important; /* Move the caption up to a more suitable position */
+        transform: none; /* Remove the vertical centering transform */
+        left: 5%; /* Add a small left margin for better mobile display */
+        right: 5%; /* Add a small right margin for better mobile display */
+        max-width: 90%; /* Let the caption take up more width on small screens */
+    }
+
+    /* Adjust font size on smaller screens */
+    .carousel-caption h1 {
+        font-size: 1.8rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.9rem;
+    }
+    .carousel-item img {
+    width: 100%;
+    height: 50vh;
+}
 }

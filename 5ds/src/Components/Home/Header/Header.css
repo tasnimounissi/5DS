@@ -40,7 +40,7 @@
 
 /* Partie rouge : visible sur lg et xl seulement 
 .size_red {
-  display: none; cachée par défaut (sm et md) 
+  display: none; /*cachée par défaut (sm et md) 
 }*/
 
 /* Texte */

@@ -4,9 +4,9 @@ import "./FaQ.css";
 
 function FaQ() {
   return (
-    <section className="faq-section container">
-      <h2 className="fw-bold title mb-3">Frequently asked questions</h2>
-      <p>
+    <section className="faq-section container m-auto">
+      <h2 className="fw-bold">Frequently asked questions</h2>
+      <p className="m-auto">
         We've compiled comprehensive information to address your queries and
         provide insights into our services.
       </p>
@@ -44,7 +44,7 @@ function FaQ() {
         </div>
 
         {/* Colonne droite : textes centrés verticalement */}
-        <div className="col-md-6 d-flex align-items-center">
+        <div className="col-md-6 d-flex align-items-center ps-sm-3">
           <div className="faq-text">
             <h5>Service Offerings</h5>
             <p>Sculpting Success, One Tailored Solution at a Time.</p>

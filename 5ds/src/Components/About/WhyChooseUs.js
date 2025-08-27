@@ -24,31 +24,27 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="why-choose-us section-padding">
+    <section className="why-choose-us">
       <div className="container">
         {/* Header Section */}
-        <div className="row justify-content-center text-center">
-          <div className="col-lg-8">
-            <h6 className="section-subtitle text-danger">WHY CHOOSE US</h6>
-            <h2 className="section-title">
-              We're seeking for a tailored approach for each project
-            </h2>
-            <p className="section-description">
-              Our main objective before our work is to grab the intention of the
-              clients as their desire is the number one element through which we
-              present the reality of what they want
-            </p>
-          </div>
+        <div className="header-section">
+          <h6 className="section-subtitle">WHY CHOOSE US</h6>
+          <h2 className="section-title">
+            We're seeking for a tailored approach for each project
+          </h2>
+          <p className="section-description">
+            Our main objective before our work is to grab the intention of the
+            clients as their desire is the number one element through which we
+            present the reality of what they want
+          </p>
         </div>
 
-        <div className="row g-4">
+        <div className="features-grid">
           {steps.map((step, index) => (
-            <div key={index} className="col-lg-4 col-md-6">
-              <div className="feature-card">
-                <span className="num-badge">{step.number}</span>
-                <h3 className="feature-title">{step.title}</h3>
-                <p className="feature-description">{step.description}</p>
-              </div>
+            <div key={index} className="feature-card">
+              <span className="num-badge">{step.number}</span>
+              <h3 className="feature-title">{step.title}</h3>
+              <p className="feature-description">{step.description}</p>
             </div>
           ))}
         </div>

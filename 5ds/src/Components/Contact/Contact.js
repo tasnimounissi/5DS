@@ -23,13 +23,51 @@ function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
+   // Vérifier que tous les champs obligatoires sont remplis
+  if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+    alert("Veuillez remplir tous les champs obligatoires !");
+    return; // Stoppe l'envoi
+  }
+
+    try {
+      const res = await fetch("http://localhost:5000/contacts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!res.ok) {
+        throw new Error("Erreur lors de l’envoi du formulaire");
+      }
+
+      const data = await res.json();
+      console.log("Formulaire envoyé avec succès:", data);
+
+      // Vider le formulaire
+      setFormData({
+        firstName: "",
+        lastName: "",
+        phoneNumber: "",
+        subject: "",
+        email: "",
+        message: "",
+      });
+
+      alert("Votre message a été envoyé avec succès ");
+
+    } catch (error) {
+      console.error("Erreur:", error);
+      alert("Une erreur est survenue ");
+    }
   };
 
   return (
-    <div className="contact-page">
+    <div className="contact-page" id="contact">
       <Container fluid className="contact-container">
         <div className="contact-header">
           <h1 className="contact-title">

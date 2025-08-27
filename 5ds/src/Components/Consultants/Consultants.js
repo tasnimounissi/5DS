@@ -1,11 +1,9 @@
 import React from 'react';
 import './Consultants.css';
-import Cards from './Cards';
-import FaQ from './FaQ'
 
 const Consultants = () => {
   return (
-    <section className="consultants-section" id="#consultants">
+    <section className="consultants-section" id="consultants">
       <div className="container">
         <div className="row align-items-center">
           

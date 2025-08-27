@@ -1,0 +1,31 @@
+{
+  "contacts": [
+    {
+      "id": "1",
+      "firstName": "Aya",
+      "lastName": "Ben Ali",
+      "phoneNumber": "+21620000000",
+      "subject": "Demande d'information",
+      "email": "aya@example.com",
+      "message": "Bonjour, je voudrais plus de détails sur vos services."
+    },
+    {
+      "id": "2",
+      "firstName": "Ali",
+      "lastName": "Khaled",
+      "phoneNumber": "+33612345678",
+      "subject": "Collaboration",
+      "email": "ali@example.com",
+      "message": "Serait-il possible d’organiser un rendez-vous la semaine prochaine ?"
+    },
+    {
+      "id": "aaca",
+      "firstName": "Tasnim",
+      "lastName": "Ounissi",
+      "phoneNumber": "+21697811024",
+      "subject": "Demande d'information",
+      "email": "tasnimounissi16@gmail.com",
+      "message": "Je voudrais plus de details "
+    }
+  ]
+}

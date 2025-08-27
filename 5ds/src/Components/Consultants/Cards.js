@@ -7,9 +7,13 @@ const GAP_PX = 24; // doit correspondre au gap CSS
 
 const Cards = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [perView, setPerView] = useState(3);      // 3 (lg) / 2 (md) / 1 (sm)
-  const [stepPx, setStepPx] = useState(0);        // largeur d’un “pas” en px (carte + gap)
+  const [perView, setPerView] = useState(3); 
+  const [stepPx, setStepPx] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [autoScrollActive, setAutoScrollActive] = useState(false);
   const firstCardRef = useRef(null);
+  const containerRef = useRef(null); 
+  const intervalRef = useRef(null);
 
   const consultants = [
     {
@@ -62,13 +66,40 @@ const Cards = () => {
     }
   ];
 
-  // 1) Gérer le responsive: 1 (sm) / 2 (md) / 3 (lg)
+  // Observer pour détecter quand les cartes deviennent visibles
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+            setAutoScrollActive(true); // Démarrer l'auto-scroll
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    const currentNode = containerRef.current; // copie locale
+    if (currentNode) {
+      observer.observe(currentNode);
+    }
+
+    return () => {
+      if (currentNode) observer.unobserve(currentNode); // cleanup sûr
+    };
+  }, [isVisible]);
+
+  // Gérer le responsive
   useEffect(() => {
     const computePerView = () => {
       const w = window.innerWidth;
-      if (w < 768) return 1;        // sm
-      if (w < 992) return 2;        // md
-      return 3;                     // lg+
+      if (w < 768) return 1;
+      if (w < 992) return 2;
+      return 3;
     };
     const onResize = () => setPerView(computePerView());
     setPerView(computePerView());
@@ -76,15 +107,14 @@ const Cards = () => {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // 2) Mesurer la largeur d’une carte pour un scroll précis (gap inclus)
+  // Mesurer la largeur d'une carte pour un scroll précis
   useEffect(() => {
     const recalc = () => {
       if (firstCardRef.current) {
-        const w = firstCardRef.current.offsetWidth;  // largeur de la carte visible
-        setStepPx(w + GAP_PX);                       // carte + gap
+        const w = firstCardRef.current.offsetWidth;
+        setStepPx(w + GAP_PX);
       }
     };
-    // recalcul initial + après un petit délai pour laisser le layout se poser
     recalc();
     const id = setTimeout(recalc, 50);
     window.addEventListener("resize", recalc);
@@ -94,31 +124,45 @@ const Cards = () => {
     };
   }, [perView]);
 
-  // 3) Auto-scroll (toutes les 12s) et s'arrête à la fin (ne revient pas au début)
+  // Auto-scroll intelligent
   useEffect(() => {
-    const maxIndex = Math.max(0, consultants.length - perView);
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : prev));
-    }, 12000); // 12 secondes entre chaque “pas”
-    return () => clearInterval(interval);
-  }, [consultants.length, perView]);
+    if (!autoScrollActive) return;
 
-  // 4) Si perView change, rester dans la plage valide
+    const maxIndex = Math.max(0, consultants.length - perView);
+    
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prev) => {
+        const nextIndex = prev + 1;
+        if (nextIndex >= maxIndex) {
+          setAutoScrollActive(false);
+          return maxIndex;
+        }
+        return nextIndex;
+      });
+    }, 3000);
+    
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [autoScrollActive, consultants.length, perView]);
+
+  // Ajuster l'index si perView change
   useEffect(() => {
     const maxIndex = Math.max(0, consultants.length - perView);
     if (currentIndex > maxIndex) setCurrentIndex(maxIndex);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [perView]);
+  }, [perView, currentIndex, consultants.length]);
 
   const maxIndex = Math.max(0, consultants.length - perView);
 
+  const goToPrevious = () => setCurrentIndex((i) => Math.max(0, i - 1));
+  const goToNext = () => setCurrentIndex((i) => Math.min(maxIndex, i + 1));
+
   return (
-    <div className="cards-carousel-container">
+    <div className="cards-carousel-container" ref={containerRef}>
       <div
         className="cards-scroll-wrapper"
         style={{
           transform: `translateX(-${currentIndex * stepPx}px)`,
-          // Variables CSS pour calculer les largeurs en pur CSS
           "--per-view": perView,
           "--gap": `${GAP_PX}px`,
         }}
@@ -133,56 +177,31 @@ const Cards = () => {
               <div className="consultant-header">
                 <div className="consultant-icon">{consultant.icon}</div>
                 <div className="consultant-info">
-                  <Card.Title className="consultant-title">
-                    {consultant.title}
-                  </Card.Title>
-                  <Card.Subtitle className="consultant-subtitle">
-                    {consultant.subtitle}
-                  </Card.Subtitle>
+                  <Card.Title className="consultant-title">{consultant.title}</Card.Title>
+                  <Card.Subtitle className="consultant-subtitle">{consultant.subtitle}</Card.Subtitle>
                 </div>
               </div>
-
               <div className="rating-stars">
                 {Array.from({ length: 5 }, (_, i) => (
-                  <span
-                    key={i}
-                    className={`star ${i < consultant.rating ? "filled" : ""}`}
-                  >
-                    ★
-                  </span>
+                  <span key={i} className={`star ${i < consultant.rating ? "filled" : ""}`}>★</span>
                 ))}
               </div>
-
-              <Card.Text className="consultant-description">
-                {consultant.description}
-              </Card.Text>
+              <Card.Text className="consultant-description">{consultant.description}</Card.Text>
             </Card.Body>
           </Card>
         ))}
       </div>
 
-      {/* (Optionnel) petites flèches pour contrôler aussi à la main */}
       <div className="nav-arrows">
-        <button
-          className="nav-btn"
-          onClick={() => setCurrentIndex((i) => Math.max(0, i - 1))}
-          disabled={currentIndex === 0}
-        >
-          ‹
-        </button>
-        <button
-          className="nav-btn"
-          onClick={() => setCurrentIndex((i) => Math.min(maxIndex, i + 1))}
-          disabled={currentIndex === maxIndex}
-        >
-          ›
-        </button>
+        <button className="nav-btn" onClick={goToPrevious} disabled={currentIndex === 0}>‹</button>
+        <button className="nav-btn" onClick={goToNext} disabled={currentIndex === maxIndex}>›</button>
       </div>
     </div>
   );
 };
 
 export default Cards;
+
 
 
 

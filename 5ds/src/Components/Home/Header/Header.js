@@ -1,22 +1,21 @@
 import "./Header.css";
 import { Clock } from "phosphor-react";
-import { Navbar, Nav, Container } from "react-bootstrap";
 
 const Header = () => {
   return (
     <>
       <div className="header-topbar">
         {/* Top Bar */}
-        <div className="top-bar d-flex flex-wrap text-white">
+        <div className="top-bar flex-wrap text-white">
           
           {/* Partie rouge (visible seulement en lg et plus) */}
-          <div className="bg-danger size_red d-flex align-items-center">
+          <div className="bg-danger size_red align-items-center">
             <Clock className="me-2 fs-5" weight="fill" size={18} />
             <span className="text">Opening hours: Mon - Sat 9:00 - 18:00</span>
           </div>
 
           {/* Partie noire (toujours visible) */}
-          <div className="size_black d-flex align-items-center px-3">
+          <div className="size_black align-items-center px-3">
             <i className="bi bi-telephone px-2"></i> +33 635 397 899 &nbsp; |
             &nbsp;
             <i

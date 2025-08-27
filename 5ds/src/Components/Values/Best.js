@@ -15,7 +15,7 @@ const Best = () => {
             <h1 className="banner-title">The Best Solutions For</h1>
             <h1 className="banner-title">Developing Your Business</h1>
             <a href='#services'>
-              <Button variant="danger rounded-0 p-3 mt-3 fw-bold">View more services</Button>
+              <Button variant="danger rounded-0 p-3 mt-3 fw-bold" href="#services">View more services</Button>
             </a>
           </div>
         </div>
