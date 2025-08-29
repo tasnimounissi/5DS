@@ -112,23 +112,21 @@
 /* ===== VIDEO INTRO ===== */
 .video-intro {
   margin-top: 40px;
-  display: flex;          /* nouveau */
-  align-items: center;    /* centre verticalement le bouton avec les autres éléments */
-  gap: 10px;              /* espace si besoin */
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-
 
 .play-button {
   display: inline-flex;
-  align-items: center; /* déjà présent */
+  align-items: center;
   gap: 10px;
   color: white;
   font-weight: 500;
   font-size: 16px;
-  line-height: 1;     /* ajouter */
+  line-height: 1;
   text-decoration: none;
 }
-
 
 .play-button:hover {
   color: white;
@@ -140,19 +138,18 @@
 }
 
 .play-icon {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   background: #dc3545;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
   flex-shrink: 0;
   color: white;
 }
-
 
 .play-text {
   color: white;
@@ -168,7 +165,7 @@
   box-shadow: none;
 }
 
-/* ===== RIGHT SECTION (FORM) ===== */
+/*RIGHT SECTION (FORM) */
 .right-section {
   padding: 20px;
 }
@@ -227,16 +224,116 @@
   font-weight: 700;
   white-space: nowrap;
   min-width: 180px;
+  outline: none;
+  box-shadow: none;
+}
+
+.subscribe-button:hover {
+  background: #c82333;
+  outline: none;
+}
+
+.subscribe-button:active {
+  background: #bd2130 !important;
+  border-color: #bd2130 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.subscribe-button:focus {
+  background: #c82333;
+  border-color: #c82333;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25) !important;
+  outline: none !important;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   .left-section {
-    text-align: center;
+    text-align: center; /* Centre tout le contenu */
+    padding: 20px; /* Réduit le padding */
+  }
+
+  .content-wrapper {
+    max-width: 100%; /* Utilise toute la largeur disponible */
+    width: 100%; /* Force la largeur complète */
   }
 
   .main-title {
     font-size: 36px;
   }
+
+  .stay-tuned {
+    font-size: 28px;
+  }
+
+  /* Centre le countdown */
+  .countdown-section {
+    margin: 30px auto;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* Centre le bouton video */
+  .video-intro {
+    justify-content: center;
+    margin-top: 30px;
+  }
 }
 
+/* Responsive pour très petits écrans */
+@media (max-width: 576px) {
+  .left-section {
+    padding: 15px; /* Padding encore plus réduit */
+  }
+
+  .main-title {
+    font-size: 32px;
+  }
+
+  .stay-tuned {
+    font-size: 24px;
+  }
+
+  /* Adapte le countdown pour mobile */
+  .countdown-section {
+    padding: 15px 10px; /* Réduit le padding interne */
+    min-width: 280px; /* Largeur minimale pour contenir le contenu */
+    max-width: 90%; /* Ne dépasse pas 90% de l'écran */
+  }
+
+  .day-name {
+    font-size: 20px; /* Réduit la taille */
+  }
+
+  .date {
+    font-size: 14px; /* Réduit la taille */
+  }
+
+  .countdown-timer {
+    gap: 15px; /* Réduit l'espace entre les unités */
+    flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
+    justify-content: center; /* Centre les éléments */
+  }
+
+  .time-unit {
+    font-size: 24px; /* Réduit pour mobile */
+    min-width: 60px; /* Largeur minimale pour éviter le chevauchement */
+    text-align: center; /* Centre le texte */
+  }
+
+  .time-unit sub {
+    font-size: 12px; /* Réduit la taille des labels */
+  }
+
+  /* Réduit la taille du bouton play sur mobile */
+  .play-icon {
+    width: 70px; /* Encore plus petit pour mobile */
+    height: 70px;
+    font-size: 12px;
+  }
+
+  .play-text {
+    font-size: 14px; /* Réduit le texte du bouton */
+  }
+}

@@ -184,25 +184,66 @@
   border-radius: 0;
   transition: all 0.3s ease;
   cursor: pointer;
+  /* Supprimer l'outline par défaut */
+  outline: none;
+  
+  /* Personnaliser les états de focus et active */
+  box-shadow: none;
+
 }
 
 .submit-btn:hover {
   background-color: #dc3545;
   color: white;
   border-color: #dc3545;
+  outline: none;
 }
-.submit-btn:active,
+.submit-btn {
+  background-color: transparent;
+  border: 2px solid #dc3545;
+  color: #dc3545;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* État hover */
+.submit-btn:hover {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+/* État focus - Garder l'effet mais en rouge */
 .submit-btn:focus {
   background-color: #dc3545 !important;
   color: white !important;
   border-color: #dc3545 !important;
-  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  /* L'effet halo en rouge au lieu de bleu */
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+  outline: none !important;
 }
 
-/* Info Section */
-.info-section {
-  padding-left: 1.5rem;
-  flex: 1;
+/* État active (lors du clic) - Garder l'effet mais en rouge */
+.submit-btn:active {
+  background-color: #c82333 !important;
+  color: white !important;
+  border-color: #c82333 !important;
+  /* L'effet halo rouge légèrement plus intense lors du clic */
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.5) !important;
+  outline: none !important;
+}
+
+/* État focus + active combiné */
+.submit-btn:focus:active {
+  background-color: #c82333 !important;
+  color: white !important;
+  border-color: #c82333 !important;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.5) !important;
+  outline: none !important;
 }
 
 /* Info Title */

@@ -21,7 +21,7 @@
   height: calc(100px + 40px);
 }
 
-/* --- LOGO --- */
+/* LOGO  */
 .navbar-logo {
   height: 50px;       /* taille fixe (desktop et mobile) */
   width: auto;        /* garde les proportions */
@@ -56,7 +56,7 @@ button.btn-outline-danger {
   border-radius: 0;
 }
 
-/* --- Responsive --- */
+/* Responsive */
 @media (max-width: 991.98px) {
   .custom-navbar {
     min-height: 80px;
@@ -80,7 +80,7 @@ button.btn-outline-danger {
   }
 }
 
-/* Écrans très petits (iPhone etc.) */
+/* Écrans très petits */
 @media (max-width: 420px) {
   .navbar-logo {
     height: 45px; /* petit ajustement si écran minuscule */

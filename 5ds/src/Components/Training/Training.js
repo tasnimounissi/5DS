@@ -5,13 +5,13 @@ import singraLogo from "../assets/singra.png";
 import backgroundImg from "../assets/background.jpg";
 
 function Training() {
-  // 1️⃣ Hook pour gérer le chargement (déjà présent)
+  // Hook pour gérer le chargement (déjà présent)
   const [loading, setLoading] = useState(true);
 
-  // 2️⃣ Hook pour stocker l'email saisi par l’utilisateur
+  // Hook pour stocker l'email saisi par l’utilisateur
   const [email, setEmail] = useState("");
 
-  // 3️⃣ Hook pour afficher un message d’erreur ou de succès
+  // Hook pour afficher un message d’erreur ou de succès
   const [message, setMessage] = useState("");
 
   // Effet de chargement au début (déjà présent)
@@ -20,13 +20,13 @@ function Training() {
     return () => clearTimeout(timer);
   }, []);
 
-  // 4️⃣ Fonction pour valider l’email
+  //  Fonction pour valider l’email
   const validateEmail = (email) => {
     // Regex simple pour vérifier que l’email ressemble à "exemple@domaine.com"
     return /\S+@\S+\.\S+/.test(email);
   };
 
-  // 5️⃣ Fonction appelée quand on clique sur "SUBSCRIBE NOW"
+  //  Fonction appelée quand on clique sur "SUBSCRIBE NOW"
   const handleSubmit = async (e) => {
     e.preventDefault(); // Empêche le rechargement de la page
 

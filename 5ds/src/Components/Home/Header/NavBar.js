@@ -119,7 +119,7 @@ const NavBar = () => {
               </Nav.Link>
 
               {/* Bouton visible uniquement sur mobile */}
-              <Nav.Item className="d-lg-none mt-3">
+              <Nav.Item className="d-lg-none mt-3" style={{fontWeight:"32px"}}>
                 <Button 
                   variant="outline-danger"
                   className="rounded-0 w-100"
